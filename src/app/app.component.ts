@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatButtonModule, MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'IndianHostFamilyV3';
+
+  constructor(public snackBar: MatSnackBar) {}
+
+  openSnackBar() {
+    this.snackBar.open("Hey ! Whats up?", 'close', {
+      duration: 5000
+    }))
+  }
+  
 }
