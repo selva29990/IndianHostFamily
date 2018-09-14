@@ -1,0 +1,63 @@
+<section id="demo main" class="wrapper">
+  <div class="inner">
+    <header class="align-center">
+       <h1>Login</h1>
+       <p>Please enter your email and password</p>
+    </header>
+       <form [formGroup]="signInForm" (ngSubmit)="signIn()">
+            <mat-form-field [formGroup]="signInForm">
+              <input matInput placeholder="Enter your email" [formControl]="email" required>
+              <mat-error *ngIf="email.valid">Not a valid email</mat-error>
+            </mat-form-field>
+            <br>
+          <mat-form-field [formGroup]="signInForm">
+            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"  [formControl]="password" required>
+           <!-- <mat-icon matsuffix (click)="hide =!hide" > 
+              {{ hide ? 'visibility' : 'visibility_off'}}
+            </mat-icon> -->
+            <mat-hint align="end">
+              <h6>
+                <a routerLink="/reset-password">Forgot password?</a>
+              </h6>
+            </mat-hint> 
+            <mat-error *ngIf="password.valid">Not a valid password</mat-error>
+          </mat-form-field>
+          <br> <br>
+          <button class="button special icon" mat-raised-button type="submit">
+              <i class="fas fa-sign-in-alt"></i> &nbsp;
+              Sign in</button> &nbsp;
+          <button class="button icon" mat-raised-button color="warn" routerLink="/home" type="submit">
+            <i class="fas fa-angle-left"></i> &nbsp;Back</button> <br> <br>
+          <h6 style="text-align: center">
+            Create an account? <a style="color:blue" routerLink="/signup">Signup</a>
+          </h6>
+          <br>
+          <div class="align-center">
+                    <button class="button special alt" mat-raised-button color="primary" type="submit" (click)="GLogin()">
+                        <i class="fab fa-google"></i> &nbsp; Sign in with Google</button> &nbsp;
+            </div> <br>
+          <!-- login in Google-->
+          <div class="align-center">
+                    <button class="button" mat-raised-button color="warn" type="submit" (click)="FLogin()">
+                        <i class="fab fa-facebook-f"></i> &nbsp; Sign in with facebook</button> &nbsp;
+            </div>
+        </form> 
+      </div>
+  </section>
+<br><br>
+
+<footer id="footer">
+  <div class="inner">
+    <h2>Get In Touch</h2>
+    <ul class="actions">
+      <li> <a href="mailto:hello@indianhostfamily.com?Subject=QueryFromWebsite"><span class="fa fa-envelope"></span> &nbsp; <label>hello@indianhostfamily.com</label></a> </li>
+      <!--<li><span class="icon fa-envelope"></span> <a href="#">selva.balaji@outlook.com</a></li> -->
+    </ul> 
+    <div>
+
+    </div>
+  </div>
+  <div class="copyright"> &nbsp;
+    &copy;Made in Ireland with love by Selva.
+  </div> 
+</footer>

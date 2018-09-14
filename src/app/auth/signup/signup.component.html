@@ -1,0 +1,47 @@
+<section id="main" class="wrapper">
+    <div class="inner">
+      <header class="align-center">
+       <h1>Welcome to Indian host family</h1>
+       <p>Please enter your full name, email and password</p>
+      </header>
+          <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+            <!--Email-->
+            <mat-form-field [formGroup]="signUpForm">
+                <input matInput placeholder="Enter full name" [formControl]="displayName" required>
+            </mat-form-field> <br> 
+
+          <!--Email-->
+          <mat-form-field [formGroup]="signUpForm">
+            <input matInput placeholder="Enter your email" [formControl]="email" required>
+            <mat-error *ngIf="email.valid">Not a valid email</mat-error>
+          </mat-form-field>
+                    
+            <!--Password-->
+            <mat-form-field [formGroup]="signUpForm">
+              <input matInput placeholder="Enter password" [formControl]="password" [type]="hide ? 'password' : 'text'" required>
+              <!--<mat-icon matsuffix (click)="hide =!hide" > 
+                {{ hide ? 'visibility' : 'visibility_off'}}
+              </mat-icon> -->
+              <mat-error *ngIf="password.valid">Not a valid password</mat-error>
+            </mat-form-field> <br>
+            <button class="button special" (click)="signUp()" mat-raised-button color="primary"> <i class="fas fa-user-plus"></i>&nbsp; Sign up</button> &nbsp;
+            <button class="button" mat-raised-button color="warn" routerLink="/home" type="submit"><i class="fas fa-angle-left"></i> &nbsp; Back</button> <br>
+          </form>
+      </div>
+  </section> <br>
+
+  <footer id="footer">
+    <div class="inner">
+      <h2>Get In Touch</h2>
+      <ul class="actions">
+        <li> <a href="mailto:hello@indianhostfamily.com?Subject=QueryFromWebsite"><span class="fa fa-envelope"></span> &nbsp; <label>hello@indianhostfamily.com</label></a> </li>
+        <!--<li><span class="icon fa-envelope"></span> <a href="#">selva.balaji@outlook.com</a></li> -->
+      </ul> 
+      <div>
+  
+      </div>
+    </div>
+    <div class="copyright"> &nbsp;
+      &copy;Made in Ireland with love by Selva.
+    </div> 
+  </footer>

@@ -1,0 +1,14 @@
+.input-group{
+     align-self: flex-end;   
+}
+
+.form-control{
+    border-radius: 0;
+    border: 0;
+    background-color: rgb(54, 228, 228);
+}
+
+.send{
+    border-radius: 0;
+    box-shadow: none;
+}

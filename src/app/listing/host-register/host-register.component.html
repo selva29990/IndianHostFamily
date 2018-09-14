@@ -1,0 +1,171 @@
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+          <h1>Add new listing</h1> 
+          <p>Add your property details below</p> 
+        </header>
+<div>
+<!--<input type="file" name="file" id="file" (change)="uploadImage($event)"> <br>
+<mat-progress-bar [hidden]="!uploadPercent" mode="determinate" value="{{uploadPercent | async}}"></mat-progress-bar>
+<br>
+<!--<div [hidden]="!image"> 
+  <img [src]="image || '//:0'" >
+</div>
+
+<input type="file" name="file" id="file" (change)="uploadImage($event)"> <br>
+<mat-progress-bar [hidden]="!uploadPercent" mode="determinate" value="{{uploadPercent | async}}"></mat-progress-bar>
+<br>
+<div [hidden]="!image"> 
+  <img [src]="image || '//:0'" >
+</div>-->
+
+</div>  
+<br>
+
+
+<!-- Image uploader-->
+<image-upload
+  [max]="100"
+   [headers]="{Authorization: 'MyToken'}"
+  [buttonCaption]="'Select Images!'"
+  [dropBoxMessage]="'Drop your images here!'"
+  [extensions]="['jpg','png','gif']"
+  (removed)="onRemoved($event)"
+  (uploadFinished)="onUploadFinished($event)"
+  (removed)="onRemoved($event)"
+  (uploadStateChanged)="onUploadStateChanged($event)">
+</image-upload>
+
+
+<!--<mat-select placeholder="Choose catagory" [formControl]="catagoriesControl" required>
+  <mat-option>--</mat-option>
+  <mat-option *ngFor="let cat of catagories" [value]="cat">
+    {{cat.name}}
+  </mat-option> 
+</mat-select>
+<mat-error *ngIf="catagoriesControl.hasError('required')">Please choose post catagory</mat-error>
+<mat-hint>{{catagoriesControl.value?.value}}</mat-hint>-->
+<mat-form-field>
+  <input matInput placeholder="Post Title" [(ngModel)]="Title">
+</mat-form-field> <br>
+
+<mat-form-field>
+  <input matInput type="text" name="title" id="title"  placeholder="Enter full address" ngx-google-places-autocomplete #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
+</mat-form-field> <br>
+
+<mat-form-field>
+  <mat-select [(value)]="roomType" placeholder="please select the type of room available">
+    <mat-option value="One bedroom - ensuite">One bedroom - ensuite</mat-option>
+    <mat-option value="Double bedroom - ensuite">Double bedroom - ensuite</mat-option>
+    <mat-option value="One bedroom">One bedroom</mat-option>
+    <mat-option value="Double bedroom">Double bedroom</mat-option>
+  </mat-select>
+</mat-form-field> <br>
+
+
+<mat-form-field>
+  <mat-select [(value)]="mealType" placeholder="Please select meal preference">
+    <mat-option value="Vegetatrian">Vegetatrian</mat-option>
+    <mat-option value="Non - Vegetarian">Non - Vegetarian</mat-option>
+    <mat-option value="Vegan">Vegan</mat-option>
+    <mat-option value="All">All</mat-option>
+  </mat-select>
+</mat-form-field> <br>
+
+
+<mat-form-field>
+  <mat-select [(value)]="peopleType" placeholder="Number of people you can accomodate">
+    <mat-option value="1">1</mat-option>
+    <mat-option value="2">2</mat-option>
+    <mat-option value="3">3</mat-option>
+    <mat-option value="4">4</mat-option>
+    <mat-option value="4">5</mat-option>
+    <mat-option value="More than 5">More than 5</mat-option>
+  </mat-select>
+</mat-form-field> <br>
+
+
+<mat-form-field>
+    <mat-select [(value)]="tenantPref"  placeholder="Tenenant Preference">
+    <mat-option value="Male only">Male only</mat-option>
+    <mat-option value="Female only">Female only</mat-option>
+    <mat-option value="No preference">No preference</mat-option>
+  </mat-select>
+</mat-form-field> <br>
+
+<mat-form-field>
+  <input matInput type="number" placeholder="Rent Amount" [(ngModel)]="rentAmount">
+</mat-form-field> <br>
+
+<mat-form-field>
+  <mat-select [(value)]="foodInc"  placeholder="Food included">
+  <mat-option value="Yes">Yes</mat-option>
+  <mat-option value="No">No</mat-option>
+</mat-select>
+</mat-form-field> <br>
+
+<mat-form-field>
+  <mat-select [formControl]="servicesProvided"  placeholder="Bill included" multiple>
+      <mat-option *ngFor="let bill of billInc" [(value)]="billInc" >{{bill}}
+      </mat-option>
+</mat-select>
+</mat-form-field> <br>
+
+<mat-form-field>
+  <textarea matInput placeholder="Enter property description" [(ngModel)]="message" rows="10"></textarea>
+</mat-form-field>
+<br> <br>
+
+<h2>Contact information</h2>
+
+<mat-form-field> 
+  <input matInput placeholder="Full Name" [(ngModel)]="Name">
+</mat-form-field> <br>
+
+<mat-form-field hintLabel="Enter 10 digit number starts with 0">
+    <input (keypress)="numberOnly($event)" #number matInput type="tel" [formControl]="emailFormControl" 
+    [errorStateMatcher]="matcher" placeholder="Contact number" [(ngModel)]="PhoneNo">
+    <mat-hint align="end">{{number.value.length}} / 10</mat-hint>
+    <mat-error *ngIf="emailFormControl.hasError('required')">
+      Phone number is <strong>required</strong>
+    </mat-error>
+</mat-form-field> <br>
+
+
+<mat-form-field>
+  <input matInput type="email" [formControl]="emailFormControl" 
+    [errorStateMatcher]="matcher" placeholder="Contact email" [(ngModel)]="email">
+  <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+    Please enter a valid email address
+  </mat-error>
+  <mat-error *ngIf="emailFormControl.hasError('required')">
+    Email is <strong>required</strong>
+  </mat-error>
+</mat-form-field> <br>
+
+<br>
+<button class="button special" mat-raised-button color="warn" (click)="createPost()" [disabled]="!message || !Title || !Name || 
+  !roomType || !mealType || !peopleType || !tenantPref || !rentAmount || !foodInc || !billInc || !email ||!PhoneNo">
+  {{buttonText}}
+</button> &nbsp;
+<button class="button" mat-raised-button color="warn" routerLink="/home" type="submit">Cancel</button>
+
+</div>
+</section>
+<br>
+<!--Footer-->
+<footer id="footer">
+  <div class="inner">
+    <h2>Get In Touch</h2>
+    <ul class="actions">
+      <li> <a href="mailto:hello@indianhostfamily.com?Subject=QueryFromWebsite"><span class="fa fa-envelope"></span> &nbsp; <label>hello@indianhostfamily.com</label></a> </li>
+      <!--<li><span class="icon fa-envelope"></span> <a href="#">selva.balaji@outlook.com</a></li> -->
+    </ul> 
+    <div>
+
+    </div>
+  </div>
+  <div class="copyright"> &nbsp;
+    &copy;Made in Ireland with love by Selva.
+  </div> 
+</footer>

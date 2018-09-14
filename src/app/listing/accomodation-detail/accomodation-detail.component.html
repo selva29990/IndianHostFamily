@@ -1,0 +1,159 @@
+<div class="main">
+    <div *ngIf="host">
+        <div class="row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="hostName"> 
+                            <!-- Title-->
+                            <h5>{{host.address}}</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-8 image fit padd">
+                        <div>
+                            <h4>€{{host.rentAmount}} per month | {{host.roomType}} </h4>
+                        </div>
+                        <img src="{{host.image}}" alt="">
+                    </div> <br>
+
+                    <div class="col-md-4 otherStyle">
+                        <br>
+                        <h3 id="content"> Contact Details</h3>
+                        <div *ngIf="auth.afAuth.authState | async as user; else showLogin">
+                            <label class="textStyle">
+                                &nbsp;  <b>Name:</b> &nbsp; {{host.Name}}</label> <br>
+                            <label class="textStyle">
+                                &nbsp; <b>Email:</b> &nbsp; {{host.email}}</label> <br>
+                            <label class="textStyle">
+                                &nbsp; <b>Phone:</b>&nbsp; {{host.PhoneNo}}</label>
+                            <br>
+                        </div>
+
+                        <ng-template #showLogin>
+                            <button mat-raised-button class="button special alt" color="primary" routerLink='/signin'>Sign in to see details</button> &nbsp;
+                        </ng-template>
+                        <!-- <h2 id="content">Share via</h2>
+                  <ul class="icons">
+                          <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                          <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                          <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                          <button shareButton="twitter" [style.backgroundColor]="share.prop.twitter.color">
+                                  <fa-icon [icon]="share.prop.twitter.icon" size="lg"></fa-icon>
+                          </button>
+                  </ul> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+       <!-- <div class="container">
+            <div class="otherStyle">
+                <h3>Description</h3>
+            </div>
+            <label class="textStyle">{{host.message}}</label>
+            <br>
+            <br>
+            <div class="otherStyle">
+                <h3>Features</h3>
+            </div>
+            <label class="textStyle">
+                <b> Room Type:</b> &nbsp;{{host.roomType}}</label>
+            <br>
+            <label class="textStyle">
+                <b>Food Provided:</b>&nbsp; {{host.mealType}}</label>
+            <br>
+            <label class="textStyle">
+                <b>No of people can stay:</b>&nbsp; {{host.peopleType}}</label>
+            <br>
+            <label class="textStyle">
+                <b>Tenant Preferance:</b>&nbsp; {{host.tenantPref}}</label>
+            <br>
+            <label class="textStyle">
+                <b>Food Included:</b>&nbsp; {{host.foodInc}}</label>
+            <br>
+            <label class="textStyle">
+                <b>Bill Including:</b>&nbsp;
+            </label>
+            <br>
+            <ul style="margin-left: 110px;" *ngFor="let hero of host.billInc">
+                <li>
+                    {{hero}}
+                </li>
+            </ul>
+            <label class="textStyle">
+                <b>Latitude :</b>&nbsp; {{host.lati}}</label>
+            <br>
+            <label class="textStyle">
+                <b>longitude:</b>&nbsp; {{host.lngi}}</label>
+            <br>
+        </div>
+        <br>
+        <br>
+
+        <br>
+        <br> -->
+        <!-- Tabs-->
+        <div class="container">
+            <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+                <mat-tab label="Overview">
+                  <div class="tabStyle">
+                    <div class="otherStyle">
+                        <h3>Description</h3>
+                    </div>
+                    <label class="textStyle">{{host.message}}</label>
+                    <br>
+                    <br>
+                    <div class="otherStyle">
+                        <h3>Features</h3>
+                    </div>
+                    <label class="textStyle">
+                        <b> Room Type:</b> &nbsp;{{host.roomType}}</label>
+                    <br>
+                    <label class="textStyle">
+                        <b>Food Provided:</b>&nbsp; {{host.mealType}}</label>
+                    <br>
+                    <label class="textStyle">
+                        <b>No of people can stay:</b>&nbsp; {{host.peopleType}}</label>
+                    <br>
+                    <label class="textStyle">
+                        <b>Tenant Preferance:</b>&nbsp; {{host.tenantPref}}</label>
+                    <br>
+                    <label class="textStyle">
+                        <b>Food Included:</b>&nbsp; {{host.foodInc}}</label>
+                    <br>
+                    <label class="textStyle">
+                        <b>Bill Including:</b>&nbsp;
+                    </label>
+                    <br>
+                    <ul style="margin-left: 110px;" *ngFor="let hero of host.billInc">
+                        <li>
+                            {{hero}}
+                        </li>
+                    </ul>
+                  </div>
+                </mat-tab>
+                <mat-tab label="Map View">
+                    <div class="container">
+                        <agm-map [zoom]="14" [latitude]="host.lati" [longitude]="host.lngi">
+                            <agm-marker [latitude]="host.lati" [longitude]="host.lngi"></agm-marker>
+                        </agm-map>
+                    </div>
+                </mat-tab> 
+            </mat-tab-group>
+            <br>
+        </div>
+    </div>
+</div>
+<br>
+
+<!-- <footer id="footer">
+    <div class="inner">
+      <h2>Get In Touch</h2>
+      <ul class="actions">
+        <li> <a href="mailto:hello@indianhostfamily.com?Subject=QueryFromWebsite"><span class="fa fa-envelope"></span> &nbsp; <label>hello@indianhostfamily.com</label></a> </li>
+      </ul>
+    </div>
+    <div class="copyright"> &nbsp;
+      &copy;Made in Ireland with love by Selva.
+    </div> 
+</footer> -->

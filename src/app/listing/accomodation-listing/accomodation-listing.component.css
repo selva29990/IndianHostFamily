@@ -1,0 +1,41 @@
+img{
+    width: 100%;
+}
+
+.container{
+    padding-top: 6em;
+}
+.navi:focus{
+    outline: none;
+    border: 0;
+}
+
+.navi{
+    cursor: pointer; 
+}
+
+.card-img-top-250 {
+    max-height: 350px;
+    overflow:hidden;
+}
+
+.part{
+    border-color: black;
+}
+
+.text-data{
+    margin-top: 10px;
+ }
+
+.messageStyle{
+    color: black;
+    font-size: 1.25em;
+}
+
+.align-center{
+    text-decoration: none;
+    font-size: 1.4em;
+    position: absolute;
+    bottom: 0;
+}
+

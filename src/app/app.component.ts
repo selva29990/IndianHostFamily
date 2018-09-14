@@ -1,3 +1,4 @@
+import { LoadingService } from './services/loading.service';
 import { Component } from '@angular/core';
 import { MatButtonModule, MatSnackBar } from '@angular/material';
 
@@ -7,14 +8,15 @@ import { MatButtonModule, MatSnackBar } from '@angular/material';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'IndianHostFamilyV3';
+  title = 'IndianHostFamily';
+  public loading: boolean = false;
 
-  constructor(public snackBar: MatSnackBar) {}
+  constructor(public snackBar: MatSnackBar, private loadingService: LoadingService) {}
 
   openSnackBar() {
     this.snackBar.open("Hey ! Whats up?", 'close', {
       duration: 5000
-    }))
+    })
   }
   
 }

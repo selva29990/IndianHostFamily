@@ -1,0 +1,42 @@
+<nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand mx-auto logo" href="#">
+            IndianHostfamily
+            <!--<img class="logo_img" src="../../assets/images/Logo 4.png" alt=""> -->
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        
+        <div class="navbar-collapse collapse" id="navbarNavAltMarkup">
+                <ul class="navbar-nav ml-auto" *ngIf="auth.afAuth.authState | async as user; else showLogin">
+                    <li class="nav-item">
+                        <h6 id="align-text"> Hi, {{this.userEmail}} &nbsp; &nbsp; </h6>
+                    </li>
+                    <li class="nav-item">
+                        <button mat-raised-button class="button alt" color="primary" routerLink='/host-register'>Add property</button> &nbsp;
+                    </li>
+                    <!--<li class="nav-item">
+                            <button mat-raised-button class="button special alt" color="primary" routerLink='/chatroom'>Chatroom</button> &nbsp;
+                    </li> -->
+                    <li class="nav-item">
+                        <button class="button" (click)="signOut()" mat-raised-button>
+                            <i class="fas fa-sign-out-alt"></i> &nbsp; Sign out</button>
+                    </li>
+                </ul>
+    
+            <ng-template #showLogin>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <button class="button alt" routerLink="/signin" mat-raised-button>
+                            <i class="fas fa-sign-in-alt"></i> &nbsp; Sign in </button>
+                    </li> &nbsp;
+                    <li class="nav-item">
+                        <button routerLink="/signup" class="button" mat-raised-button color="warn"> &nbsp;
+                            <i class="fas fa-user-plus"></i> Sign up</button>
+                    </li>
+                </ul>
+            </ng-template>
+        </div>
+    </nav>

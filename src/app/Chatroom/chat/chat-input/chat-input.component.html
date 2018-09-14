@@ -1,0 +1,7 @@
+<div class="new-message-wrapper d-flex">
+  <div class="input-group">
+    <input type="text" class="form-control" 
+    placeholder="Enter a new message" (keyup.enter)="submit(newMessage.value)" #newMessage>
+       <a class="send button special icon fa-search" (click)="submit(newMessage.value)"></a>
+   </div>
+</div>   

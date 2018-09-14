@@ -1,0 +1,44 @@
+nav .logo{
+    color: #f6755e;
+    font-family: "Pacifico", cursive;
+    font-size: 2.5em;
+    letter-spacing: 2px;
+    margin-top: -5px;
+    text-decoration: none;
+    display: inline-block; 
+}
+
+@media screen and (max-width: 980px) {
+    nav .logo {
+        font-size: 2em;
+        text-align: center;
+    }
+
+    .logo_img{
+        width: 250px;
+    }
+
+}
+
+@media screen and (min-width: 990px) {
+
+    .logo_img{
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    nav .logo {
+        font-size: 1.5em;
+        text-align: center;
+    }
+
+    .logo_img{
+        width: 150px;
+    }
+}
+
+#align-text{
+    padding-top: 15px;
+}
+

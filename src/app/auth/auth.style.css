@@ -1,0 +1,13 @@
+.main-div{
+    margin: auto;
+    width: 60%;
+    text-align: center;
+    padding-top: 10%;
+}
+
+.bg{
+    background: cornsilk;
+    background-repeat: no-repeat;
+    background-size: auto;
+    height: 100%;
+}

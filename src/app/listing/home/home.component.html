@@ -1,0 +1,170 @@
+<div id="demo" class="carousel slide" data-ride="carousel">
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="parallax1">
+        <div class="caption">
+          <span class="borderBig">
+            Welcome to Indian Host family
+          </span> <br> <br> <br>
+          <span class="border">
+            find your Indian host family in Ireland.
+          </span>
+        </div>
+
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="parallax2"></div>
+    </div>
+    <div class="carousel-item">
+      <div class="parallax3">
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+
+<section id="three" class="wrapper">
+  <h2 class="wrapperStyle">HOT PROPERTIES</h2>
+  <u class="underline"></u>
+</section>
+<div class="bigContainer">
+  <div class="row">
+    <div *ngFor="let post of posts | async">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <a routerLink="../accomodation-listing/{{post.id}}">
+            <h5>{{post.address}}</h5>
+          </a>
+        </mat-card-header>
+        <mat-card-subtitle class="text-align">€{{post.rentAmount}} per month | {{post.roomType}}</mat-card-subtitle>
+        <img mat-card-image src={{post.image}} alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>
+            {{post.message}}.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button routerLink="../accomodation-listing/{{post.id}}">Read more</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
+<!--<ng-adsense
+  [adClient]="'ca-pub-7395412725458407'"
+  [adSlot]="2100013295"
+  [display]="'inline-block'"
+  [width]="320"
+  [height]="108">
+</ng-adsense> -->
+<section id="three" class="wrapper">
+  <button class="button special" mat-raised-button routerLink='/accomodation-listing'>View all Properties</button>
+</section>
+<br>
+<section id="three" class="wrapper">
+  <h1>How it works</h1>
+  <div class="inner flex flex-3">
+    <div class="flex-item box">
+      <div class="image fit">
+        <span style="font-size: 450%; color: #f6755e;">&#49;</span>
+      </div>
+      <div class="content">
+        <h3>Register</h3>
+        <p>Your registration provides unlimted use of Indian Host family website.</p>
+      </div>
+    </div>
+    <div class="flex-item box">
+      <div class="image fit">
+        <span style="font-size: 450%; color: #f6755e;">&#50;</span>
+      </div>
+      <div class="content">
+        <h3>Search</h3>
+        <p>Guest can look through the Indian host family profiles and visit the 'offers' page.</p>
+      </div>
+    </div>
+    <div class="flex-item box">
+      <div class="image fit">
+        <span style="font-size: 450%; color: #f6755e;">&#51;</span>
+      </div>
+      <div class="content">
+        <h3>Connect</h3>
+        <p>Connect to members, match your interests and read comments from the previous visitors.</p>
+      </div>
+    </div>
+    <div class="flex-item box">
+      <div class="image fit">
+        <span style="font-size: 450%; color: #f6755e;">&#52;</span>
+      </div>
+      <div class="content">
+        <h3>Book</h3>
+        <p>Finalise the details of your stay via our secure an online reservation tool. You will receive a contract containing
+          all the important details of the homestay..</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Two -->
+<section id="one" class="wrapper style1">
+  <h2>Announcements</h2>
+  <u class="underline"></u> <br>
+  <!--<div class="inner flex flex-3">
+        <div class="flex-item">
+          <div>
+            <h3 class="addSpace">Host Regsitration</h3>
+            <p>Welcome to Indian host family. <br /> Turn your unused rooms into useful one.</p>
+                <button class="button special" mat-raised-button color="basic" routerLink='/host-register'>Add your property</button> &nbsp;
+          </div>
+        </div>
+          <br>
+       <div class="flex-item">
+          <div>
+            <h3 class="addSpace">Guest</h3>
+            <p>Want to Live with Indian family.<br /> & Feel safe and get home stay experience.</p>
+                  <button class="button special" mat-raised-button color="primary" routerLink="/accomodation-listing">View all listing</button>
+          </div>
+        </div>
+      </div> -->
+  <div class="container">
+    <div class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="col-md">
+              <img class="d-block w-100" src="../../../assets/images/advs_1200x600.jpg" alt="1 slide">
+            </div>
+            <div class="col-md">
+              <img class="d-block w-100" src="../../../assets/images/advs_1200x600.jpg" alt="2 slide">
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-sm">
+              <img class="d-block w-100" src="../../../assets/images/advs_1200x600.jpg" alt="4 slide">
+            </div>
+            <div class="col-sm">
+              <img class="d-block w-100" src="../../../assets/images/advs_1200x600.jpg" alt="5 slide">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!--Footer-->
+<app-footer></app-footer>

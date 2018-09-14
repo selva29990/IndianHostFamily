@@ -1,0 +1,13 @@
+@media screen and (min-width: 420px) {
+
+    #footer {
+        padding: 3em 0 1em 0;
+        position: fixed;
+     }
+
+        #footer ul li {
+            display: block;
+            padding: .25em 0;
+        }
+
+}

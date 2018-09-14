@@ -1,0 +1,60 @@
+.main{
+    height: 100%;
+    padding-top: 6em;
+}
+ 
+.bgcolor{
+    background-color: red;
+}
+
+.hostName{
+    width: 100%;
+}
+
+.hostName h1, .hostName h2, .hostName h3, .hostName h4, .hostName h5, .hostName h6{
+    background: #f6755e;
+    color: #ffffff;
+    padding: 1em 0.5em 0.5em 0.7em;
+}
+@media screen and (min-width: 980px) {
+    .imageStyle {
+        text-decoration: none;
+        margin-left: 1em;
+    }
+}
+.hostName a{
+    text-decoration: none;
+}
+
+.newImage{
+    max-width: 100%; 
+    height: auto;
+}
+
+agm-map{
+    height: 400px;;
+}
+
+ul {
+    list-style: none;
+  }
+  
+  ul li:before {
+    content: '✓';
+  }
+
+  .example-stretched-tabs {
+    max-width: 800px;
+  }
+
+  .tabStyle{
+      padding: 10px
+  }
+
+.padd{
+    padding-top: 20px;
+}
+
+#footer{
+    padding-top: 2em;
+}
