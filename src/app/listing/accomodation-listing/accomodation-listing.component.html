@@ -1,36 +1,7 @@
 <div class="container">
   <div *ngFor="let post of posts | async">
-       <div class="row">
-        <div class="PostName"><!-- Title--> 
-            <a routerLink="{{post.id}}"> 
-              <h5>{{post.address}}</h5>
-            </a>
-        </div><!-- Title ends-->
-        <div class="col-md-4"> <!--Image-->
-          <div class="imageStyle"> 
-              <img src="{{post.image}}" alt="Card image">
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="wrapperStyle">
-            <h5>€{{post.rentAmount}} per month</h5>
-          </div>
-          <div class="otherStyle">
-            <h5>{{post.roomType}}&nbsp;|&nbsp;{{post.tenantPref}}</h5> 
-          </div>
-          <div>
-            <p class="messageStyle">{{post.message}}</p>
-          </div>
-          <div>
-            <p>posted on {{post.published | fromNow}}</p>
-          </div>
-        </div> 
-        <div class="col-md-2">
-             <p> <a style="font-size: 1em" class="align-center" routerLink="{{post.id}}" href="">More info</a> </p>
-        </div>
-     </div> <br> <!-- card ends-->
-
-</div>
+      <app-listing [post]="post"></app-listing>
+  </div>
 </div>
 <!--Footer-->
 <app-footer></app-footer>

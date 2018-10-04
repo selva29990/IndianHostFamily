@@ -1,7 +1,7 @@
 img{
     width: 100%;
 }
-
+ 
 .container{
     padding-top: 6em;
 }
@@ -30,7 +30,7 @@ img{
 .messageStyle{
     -webkit-box-orient: vertical;
     color: black;
-    font-size: 1.25em;
+    font-size: 1em;
     overflow: hidden;
     text-overflow:ellipsis;
     display: -webkit-box;
@@ -47,4 +47,14 @@ img{
 
 .aimage{
     height: 300px;
+    z-index: 1;
 }
+
+.bimage{
+    z-index: 2;
+    position: absolute;
+    height: 250px;
+    width: 100%;
+    max-width: 250px;
+}
+

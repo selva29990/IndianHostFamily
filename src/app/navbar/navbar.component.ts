@@ -28,7 +28,6 @@ export class NavbarComponent implements OnInit {
   }
 
   signOut(){
-    console.log("Sign out clicked ")
     this.auth.logout();
   }
   

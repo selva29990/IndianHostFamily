@@ -1,7 +1,9 @@
 export class Host {
     id?: string;
     message: string;
-    Title: String
+    authorId: string;
+    Title: string;
+    status: Boolean;
     image: any;
     Name: string;
     email: string;

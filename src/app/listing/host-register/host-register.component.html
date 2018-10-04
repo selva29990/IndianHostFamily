@@ -50,7 +50,7 @@
 </mat-form-field> <br>
 
 <mat-form-field>
-  <input matInput type="text" name="title" id="title"  placeholder="Enter full address" ngx-google-places-autocomplete #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
+  <input matInput type="text" name="title" id="title" [(ngModel)]="address" placeholder="Enter full address" ngx-google-places-autocomplete #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
 </mat-form-field> <br>
 
 <mat-form-field>
@@ -96,7 +96,7 @@
 <mat-form-field>
   <input matInput type="number" placeholder="Rent Amount" [(ngModel)]="rentAmount">
 </mat-form-field> <br>
-
+ 
 <mat-form-field>
   <mat-select [(value)]="foodInc"  placeholder="Food included">
   <mat-option value="Yes">Yes</mat-option>
@@ -105,9 +105,11 @@
 </mat-form-field> <br>
 
 <mat-form-field>
-  <mat-select [formControl]="servicesProvided"  placeholder="Bill included" multiple>
-      <mat-option *ngFor="let bill of billInc" [(value)]="billInc" >{{bill}}
-      </mat-option>
+  <mat-select [formControl]="servicesProvided"  placeholder="Bill included" [(value)]="billInc"  multiple>
+      <mat-option value="WiFi" >WiFi</mat-option>
+      <mat-option value="TV" >TV</mat-option>
+      <mat-option value="Gas & Electricity" >Gas & Electricity</mat-option>
+      <mat-option value="Parking" >Parking</mat-option>
 </mat-select>
 </mat-form-field> <br>
 
@@ -126,9 +128,6 @@
     <input (keypress)="numberOnly($event)" #number matInput type="tel" [formControl]="emailFormControl" 
     [errorStateMatcher]="matcher" placeholder="Contact number" [(ngModel)]="PhoneNo">
     <mat-hint align="end">{{number.value.length}} / 10</mat-hint>
-    <mat-error *ngIf="emailFormControl.hasError('required')">
-      Phone number is <strong>required</strong>
-    </mat-error>
 </mat-form-field> <br>
 
 
@@ -144,8 +143,8 @@
 </mat-form-field> <br>
 
 <br>
-<button class="button special" mat-raised-button color="warn" (click)="createPost()" [disabled]="!message || !Title || !Name || 
-  !roomType || !mealType || !peopleType || !tenantPref || !rentAmount || !foodInc || !billInc || !email ||!PhoneNo">
+<button class="button special" mat-raised-button color="warn" (click)="createPost()" [disabled]="!Imagelist || !address || !message || !Title || !Name || 
+  !roomType || !mealType || !peopleType || !tenantPref || !rentAmount || !foodInc || !billInc || !email">
   {{buttonText}}
 </button> &nbsp;
 <button class="button" mat-raised-button color="warn" routerLink="/home" type="submit">Cancel</button>
@@ -157,15 +156,14 @@
 <footer id="footer">
   <div class="inner">
     <h2>Get In Touch</h2>
-    <ul class="actions">
-      <li> <a href="mailto:hello@indianhostfamily.com?Subject=QueryFromWebsite"><span class="fa fa-envelope"></span> &nbsp; <label>hello@indianhostfamily.com</label></a> </li>
-      <!--<li><span class="icon fa-envelope"></span> <a href="#">selva.balaji@outlook.com</a></li> -->
-    </ul> 
+    <div>
+        <a href="mailto:hello@indianhostfamily.com?Subject=QueryFromWebsite"><span class="fa fa-envelope"></span> &nbsp; <label>hello@indianhostfamily.com</label></a> 
+    </div> 
     <div>
 
     </div>
   </div>
   <div class="copyright"> &nbsp;
-    &copy;Made in Ireland with love by Selva.
+    &copy;Created by VRinTraining, Ireland.
   </div> 
 </footer>

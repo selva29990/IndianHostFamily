@@ -8,6 +8,8 @@ import { AccomodationListingComponent } from './accomodation-listing/accomodatio
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { AgmCoreModule } from '@agm/core';
+import { ListingComponent } from './listing.component';
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 
 const routes: Routes = [ 
   { path: 'home', component: HomeComponent },
@@ -20,9 +22,10 @@ const routes: Routes = [
     CommonModule, 
     SharedModule, 
     AgmCoreModule,
+    GooglePlaceModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [HomeComponent, AccomodationListingComponent, AccomodationDetailComponent, FooterComponent],
+  declarations: [HomeComponent, AccomodationListingComponent, AccomodationDetailComponent, FooterComponent, ListingComponent],
   providers: [AuthService]
 })
 export class ListingModule { }

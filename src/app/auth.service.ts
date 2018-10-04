@@ -24,6 +24,7 @@ export class AuthService {
               private afs: AngularFirestore, 
               private router: Router, 
               public snackBar: MatSnackBar) {
+    this.afAuth.authState.subscribe(data=> this.authState = data)
                 }
    
  

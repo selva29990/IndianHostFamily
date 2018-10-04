@@ -1,0 +1,13 @@
+ {
+    "asian stores":[
+        {"name":"Asian Food", "location":"Dublin 1", "address":"54-55 Mary St, North City, Dublin 1"}, 
+        {"name":"Oriental Pantry Supermarket", "location":"Dublin 1", "address":"22-23 Moore St, North City, Dublin 1, D01 N7E8"}, 
+        {"name":"Star Asia Halal Food", "location":"Dublin 1", "address":"3, 35/41 Parnell St, North City, Dublin"}, 
+        {"name":"Asian Spices Food Market", "location":"Dublin 1", "address":"12-13 Moore St, North City, Dublin 1, D01 HR26"}, 
+        {"name":"Shop Easi", "location":"Dublin", "address":"Clanbrassil Street Lower, Merchants Quay, Dublin"}, 
+        {"name":"Eurasia Supermarket", "location":"Dublin 22", "address":"1, Fonthill Retail Park, Fonthill Rd, Yellow Walls, Dublin 22"}, 
+        {"name":"Asian Food", "location":"Dublin 22", "address":"1, Fonthill Retail Park, Fonthill Rd, Yellow Walls, Dublin 22"}, 
+        {"name":"The Spice of Life", "location":"Dublin 1", "address":"Unit 4, Moore Street, Dublin 1, Ireland"}, 
+        {"name":"World of Spices", "location":"Dublin 1", "address":"17, Talbot Street, Dublin 1, Ireland"}
+      ]
+    }

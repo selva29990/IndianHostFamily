@@ -1,0 +1,175 @@
+<ng-container *ngIf="post">
+
+  <div [hidden]="!editing">
+
+    <h2>Update your post {{post.Name}}</h2>
+    <br>
+    <!-- Editing data -->
+    <mat-form-field>
+      <mat-select [(value)]="post.status" placeholder="Is your property no longer available?">
+        <mat-option value="true">Yes</mat-option>
+        <mat-option value="false">No</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Post Title" [(ngModel)]="post.Title">
+    </mat-form-field> <br>
+
+    <mat-form-field>
+      <input matInput type="text" name="title" id="title" [(ngModel)]="post.address" placeholder="Enter full address" ngx-google-places-autocomplete
+        #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)" />
+    </mat-form-field> <br>
+
+    <mat-form-field>
+      <mat-select [(value)]="post.roomType" placeholder="please select the type of room available">
+        <mat-option value="One bedroom - ensuite">One bedroom - ensuite</mat-option>
+        <mat-option value="Double bedroom - ensuite">Double bedroom - ensuite</mat-option>
+        <mat-option value="One bedroom">One bedroom</mat-option>
+        <mat-option value="Double bedroom">Double bedroom</mat-option>
+      </mat-select>
+    </mat-form-field> <br>
+
+
+    <mat-form-field>
+      <mat-select [(value)]="post.mealType" placeholder="Please select meal preference">
+        <mat-option value="Vegetatrian">Vegetatrian</mat-option>
+        <mat-option value="Non - Vegetarian">Non - Vegetarian</mat-option>
+        <mat-option value="Vegan">Vegan</mat-option>
+        <mat-option value="All">All</mat-option>
+      </mat-select>
+    </mat-form-field> <br>
+
+
+    <mat-form-field>
+      <mat-select [(value)]="post.peopleType" placeholder="Number of people you can accomodate">
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="3">3</mat-option>
+        <mat-option value="4">4</mat-option>
+        <mat-option value="4">5</mat-option>
+        <mat-option value="More than 5">More than 5</mat-option>
+      </mat-select>
+    </mat-form-field> <br>
+
+
+    <mat-form-field>
+      <mat-select [(value)]="post.tenantPref" placeholder="Tenenant Preference">
+        <mat-option value="Male only">Male only</mat-option>
+        <mat-option value="Female only">Female only</mat-option>
+        <mat-option value="No preference">No preference</mat-option>
+      </mat-select>
+    </mat-form-field> <br>
+
+    <mat-form-field>
+      <input matInput type="number" placeholder="Rent Amount" [(ngModel)]="post.rentAmount">
+    </mat-form-field> <br>
+
+    <mat-form-field>
+      <mat-select [(value)]="post.foodInc" placeholder="Food included">
+        <mat-option value="Yes">Yes</mat-option>
+        <mat-option value="No">No</mat-option>
+      </mat-select>
+    </mat-form-field> <br>
+
+    <mat-form-field>
+      <mat-select [formControl]="servicesProvided" placeholder="Bill included" [(value)]="post.billInc" multiple>
+        <mat-option value="WiFi">WiFi</mat-option>
+        <mat-option value="TV">TV</mat-option>
+        <mat-option value="Gas & Electricity">Gas & Electricity</mat-option>
+        <mat-option value="Parking">Parking</mat-option>
+      </mat-select>
+    </mat-form-field> <br>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Enter property description" [(ngModel)]="post.message" rows="10"></textarea>
+    </mat-form-field>
+    <br> <br>
+
+    <h2>Contact information</h2>
+
+    <mat-form-field>
+      <input matInput placeholder="Full Name" [(ngModel)]="post.Name">
+    </mat-form-field> <br>
+
+    <mat-form-field hintLabel="Enter 10 digit number starts with 0">
+      <input (keypress)="numberOnly($event)" #number matInput type="tel" [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+        placeholder="Contact number" [(ngModel)]="post.PhoneNo">
+      <mat-hint align="end">{{number.value.length}} / 10</mat-hint>
+    </mat-form-field> <br>
+
+
+    <mat-form-field>
+        <input matInput type="email" [formControl]="emailFormControl" 
+          [errorStateMatcher]="matcher" placeholder="Contact email" [(ngModel)]="post.email">
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field> <br>
+      
+      <br>
+    <button class="button special" mat-raised-button color="warn" (click)="update()">
+      Update
+    </button> &nbsp;
+    <button class="button" mat-raised-button color="warn" routerLink="/home" type="submit">Cancel</button>
+    <br>
+  </div>
+
+  <br>
+
+  <div [hidden]="editing">
+    <mat-card>
+      <div class="row">
+        <div class="PostName">
+          <!-- Title-->
+          <a routerLink="{{post.id}}">
+            <h5>{{post.address}}</h5>
+          </a>
+        </div><!-- Title ends-->
+        <div class="col-md-4">
+          <!--Image-->
+          <div class="imageStyle">
+            <img *ngIf="post.status" class="bimage" src="../../assets/images/lettingAgreed.png" alt="Card image">
+            <img class="aimage" src="{{post.image}}" alt="Card image">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="wrapperStyle">
+            <h5>€{{post.rentAmount}} per months</h5>
+          </div>
+          <div class="otherStyle">
+            <h5>{{post.roomType}}&nbsp;|&nbsp;{{post.tenantPref}}</h5>
+            <p class="text-muted">posted by {{post.Name}} on {{post.published.toDate() | fromNow }}</p>
+          </div>
+          <div>
+            <p style="-webkit-box-orient: vertical" class="messageStyle">{{post.message}}</p>
+          </div>
+          <div>
+            <!-- <p>posted on {{post.published | fromNow}}</p> -->
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div *ngIf="auth.currentUserId === post.authorId">
+            <button mat-icon-button (click)="editing=true">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </div>
+          <p> <a style="font-size: 1em" class="align-center" routerLink="{{post.id}}" href="">More info</a> </p>
+        </div>
+        <br>
+      </div>
+    </mat-card>
+    <br>
+  </div>
+
+
+
+</ng-container>
+
+<!-- card ends-->
+<!--Footer
+<app-footer></app-footer> -->

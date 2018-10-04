@@ -14,13 +14,14 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';  
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
-    imports: [MatButtonModule, MatProgressBarModule, MatCardModule, MatTabsModule, MatDialogModule,
+    imports: [MatExpansionModule, MatButtonModule, MatProgressBarModule, MatCardModule, MatTabsModule, MatDialogModule,
         MatSnackBarModule, MatSelectModule, MatExpansionModule, MatInputModule, MatSidenavModule, MatToolbarModule, MatIconModule
-    , MatFormFieldModule, MatGridListModule],
-    exports: [MatButtonModule, MatProgressBarModule, MatCardModule, MatTabsModule, MatDialogModule,
+    , MatFormFieldModule, MatGridListModule, MatListModule],
+    exports: [MatExpansionModule, MatButtonModule, MatProgressBarModule, MatCardModule, MatTabsModule, MatDialogModule,
         MatSnackBarModule, MatSelectModule, MatExpansionModule, MatInputModule, MatSidenavModule, MatToolbarModule, MatIconModule
-    , MatFormFieldModule, MatGridListModule],
+    , MatFormFieldModule, MatGridListModule, MatListModule],
 })
 export class MaterialModule { }

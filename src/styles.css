@@ -2,6 +2,7 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "https://fonts.googleapis.com/css?family=Montserrat:700|Open+Sans:300,400|Pacifico";
+@import url('https://fonts.googleapis.com/css?family=Chicle|Concert+One|Fredoka+One');
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
     margin: 0;
@@ -646,86 +647,7 @@ button,
 
 	}
 
-	/* Footer */
 	
-    #footer {
-        padding: 6em 0 4em 0;
-        background: #25a2c3;
-        text-align: center;
-		color: #c8e7f0;
-		width: 100%;
-		bottom: 0;
-    }
-    
-        #footer h2 {
-            color: #fff;
-        }
-    
-        #footer .icon {
-            color: #f6755e;
-        }
-    
-        #footer a {
-            color: #c8e7f0;
-            text-decoration: none;
-        }
-    
-        #footer ul li {
-            padding: 0 2em;
-        }
-    
-        #footer .copyright {
-            display: inline-block;
-            color: #a7d9e7;
-            font-size: 0.75em;
-            margin: 0 0 0.5em 0;
-            padding: 0;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.25);
-            padding: 2em 10em;
-        }
-    
-        @media screen and (max-width: 980px) {
-    
-            #footer {
-                padding: 3em 0 1em 0;
-            }
-    
-                #footer ul li {
-                    display: block;
-                    padding: .25em 0;
-                }
-    
-        }
-     
-        @media screen and (max-width: 736px) {
-    
-            #footer .copyright {
-                padding: 2em 5em;
-            }
-    
-        }
-    
-        @media screen and (max-width: 480px) {
-    
-            #footer {
-                padding: 2em 0 0.1em 0;
-            }
-    
-                #footer ul li {
-                    font-size: .9em;
-                }
-    
-                    #footer ul li .icon:before {
-                        margin-left: -1em;
-                    }
-    
-                #footer .copyright {
-                    padding: 2em 0;
-                }
-    
-		}
-		
 .underline{
 	content: "";
     display: block;
@@ -735,4 +657,269 @@ button,
 	margin-top: 20px;
 	margin-bottom: 10px;
 	margin: auto;
+}
+
+/* ===================================================================
+ * # preloader
+ *
+ * ------------------------------------------------------------------- */
+
+ .pText {
+	position: absolute;
+	font-family: 'Pacifico';
+	font-size: 20px;
+	left: 50%;
+	top: 58%;
+	margin-left: -20px;
+	color: #f6755e
+  }
+  
+  .body {
+	position: absolute;
+	top: 50%;
+	margin-left: -50px;
+	left: 50%;
+	animation: speeder .4s linear infinite;
+  }
+  .body > span {
+	height: 5px;
+	width: 35px;
+	background: #000;
+	position: absolute;
+	top: -19px;
+	left: 60px;
+	border-radius: 2px 10px 1px 0;
+  }
+  
+  .base span {
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-top: 6px solid transparent;
+	border-right: 100px solid #000;
+	border-bottom: 6px solid transparent;
+  }
+  .base span:before {
+	content: "";
+	height: 22px;
+	width: 22px;
+	border-radius: 50%;
+	background: #000;
+	position: absolute;
+	right: -110px;
+	top: -16px;
+  }
+  .base span:after {
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-top: 0 solid transparent;
+	border-right: 55px solid #000;
+	border-bottom: 16px solid transparent;
+	top: -16px;
+	right: -98px;
+  }
+  
+  .face {
+	position: absolute;
+	height: 12px;
+	width: 20px;
+	background: #000;
+	border-radius: 20px 20px 0 0;
+	transform: rotate(-40deg);
+	right: -125px;
+	top: -15px;
+  }
+  .face:after {
+	content: "";
+	height: 12px;
+	width: 12px;
+	background: #000;
+	right: 4px;
+	top: 7px;
+	position: absolute;
+	transform: rotate(40deg);
+	transform-origin: 50% 50%;
+	border-radius: 0 0 0 2px;
+  }
+  
+  .body > span > span:nth-child(1),
+  .body > span > span:nth-child(2),
+  .body > span > span:nth-child(3),
+  .body > span > span:nth-child(4) {
+	width: 30px;
+	height: 1px;
+	background: #000;
+	position: absolute;
+	animation: fazer1 .2s linear infinite;
+  }
+  
+  .body > span > span:nth-child(2) {
+	top: 3px;
+	animation: fazer2 .4s linear infinite;
+  }
+  
+  .body > span > span:nth-child(3) {
+	top: 1px;
+	animation: fazer3 .4s linear infinite;
+	animation-delay: -1s;
+  }
+  
+  .body > span > span:nth-child(4) {
+	top: 4px;
+	animation: fazer4 1s linear infinite;
+	animation-delay: -1s;
+  }
+  
+  @keyframes fazer1 {
+	0% {
+	  left: 0;
+	}
+	100% {
+	  left: -80px;
+	  opacity: 0;
+	}
+  }
+  @keyframes fazer2 {
+	0% {
+	  left: 0;
+	}
+	100% {
+	  left: -100px;
+	  opacity: 0;
+	}
+  }
+  @keyframes fazer3 {
+	0% {
+	  left: 0;
+	}
+	100% {
+	  left: -50px;
+	  opacity: 0;
+	}
+  }
+  @keyframes fazer4 {
+	0% {
+	  left: 0;
+	}
+	100% {
+	  left: -150px;
+	  opacity: 0;
+	}
+  }
+  @keyframes speeder {
+	0% {
+	  transform: translate(2px, 1px) rotate(0deg);
+	}
+	10% {
+	  transform: translate(-1px, -3px) rotate(-1deg);
+	}
+	20% {
+	  transform: translate(-2px, 0px) rotate(1deg);
+	}
+	30% {
+	  transform: translate(1px, 2px) rotate(0deg);
+	}
+	40% {
+	  transform: translate(1px, -1px) rotate(1deg);
+	}
+	50% {
+	  transform: translate(-1px, 3px) rotate(-1deg);
+	}
+	60% {
+	  transform: translate(-1px, 1px) rotate(0deg);
+	}
+	70% {
+	  transform: translate(3px, 1px) rotate(-1deg);
+	}
+	80% {
+	  transform: translate(-2px, -1px) rotate(1deg);
+	}
+	90% {
+	  transform: translate(2px, 1px) rotate(0deg);
+	}
+	100% {
+	  transform: translate(1px, -2px) rotate(-1deg);
+	}
+  }
+  .longfazers {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+  }
+  .longfazers span {
+	position: absolute;
+	height: 2px;
+	width: 20%;
+	background: #000;
+  }
+  .longfazers span:nth-child(1) {
+	top: 20%;
+	animation: lf .6s linear infinite;
+	animation-delay: -5s;
+  }
+  .longfazers span:nth-child(2) {
+	top: 40%;
+	animation: lf2 .8s linear infinite;
+	animation-delay: -1s;
+  }
+  .longfazers span:nth-child(3) {
+	top: 60%;
+	animation: lf3 .6s linear infinite;
+  }
+  .longfazers span:nth-child(4) {
+	top: 80%;
+	animation: lf4 .5s linear infinite;
+	animation-delay: -3s;
+  }
+  
+  @keyframes lf {
+	0% {
+	  left: 200%;
+	}
+	100% {
+	  left: -200%;
+	  opacity: 0;
+	}
+  }
+  @keyframes lf2 {
+	0% {
+	  left: 200%;
+	}
+	100% {
+	  left: -200%;
+	  opacity: 0;
+	}
+  }
+  @keyframes lf3 {
+	0% {
+	  left: 200%;
+	}
+	100% {
+	  left: -100%;
+	  opacity: 0;
+	}
+  }
+  @keyframes lf4 {
+	0% {
+	  left: 200%;
+	}
+	100% {
+	  left: -100%;
+	  opacity: 0;
+	}
+  }
+  
+	.aimage{
+    height: 300px;
+    z-index: 1;
+}
+
+.bimage{
+    z-index: 2;
+    position: absolute;
+    height: 250px;
+    width: 100%;
+    max-width: 250px;
 }

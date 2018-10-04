@@ -27,8 +27,8 @@ export class HostRegisterComponent implements OnInit {
   servicesProvided = new FormControl();
   id?: string;
   message: string;
-  Title: String
-  //image: any;
+  Title: string
+  image: any;
   Name: string;
   email: string;
   published: Date;
@@ -39,11 +39,12 @@ export class HostRegisterComponent implements OnInit {
   tenantPref: string;
   rentAmount: string; 
   foodInc: string;
-  billInc: string[] = ['WiFi', 'TV', 'Gas & Electricity', 'Parking'];
+  status: Boolean = false;
+  billInc: string[];
   lati: string;
   lngi: string;
   address: string;
-  
+   
   buttonText: string = "Create Post";
   uploadPercent: Observable<number>;
   downloadUrl: Observable<string>;
@@ -59,7 +60,6 @@ export class HostRegisterComponent implements OnInit {
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         this.id = user.uid;
-        console.log("*****", this.id)
        } else {
         // No user is signed in.
       }
@@ -83,10 +83,9 @@ export class HostRegisterComponent implements OnInit {
     matcher = new MyErrorStateMatcher();
 
   createPost(){
-    console.log("*****8",this.auth.currentUserId)
-    console.log("&&&", this.billInc)
     const data = {
       //id: this.id,
+      authorId: this.auth.currentUserId,
       message: this.message,
       Title: this.Title,
       image: this.Imagelist,
@@ -103,12 +102,13 @@ export class HostRegisterComponent implements OnInit {
       billInc: this.billInc,
       lati: this.lati,
       lngi: this.lngi,
-      address: this.address
+      address: this.address,
+      status: this.status
     };
     this.hostService.create(data)
       this.message=''
       this.Title=''
-      //this.image=''
+      this.image=''
       this.Name=''      
       this.email=''
       //this.published=''
@@ -139,27 +139,20 @@ export class HostRegisterComponent implements OnInit {
     const task = this.storage.upload(path, file).then(() => {
       const ref = this.storage.ref(path);
       const downloadUrl = ref.getDownloadURL().subscribe(url =>{
-        //this.image = url
-        //console.log("image URL: ", this.image)
         })
       });     
     }
   }
 
   handleAddressChange(event){
-    //console.log(JSON.parse(JSON.stringify(event)));
    const add = JSON.parse(JSON.stringify(event));
    this.lati = add.geometry.location.lat;
    this.lngi = add.geometry.location.lng;
    this.address = add.formatted_address;
-   console.log(this.lati)
-   console.log(this.lngi)
-   console.log(this.address)
   }
 
   onUploadFinished(event){
     const file = event.file
-    //this.Imagelist.push(`${file.name}`);
     const fileName = file.name
     const path = `accomodation-listing/${fileName}`
     if(file.type.split('/')[0] !== 'image'){
@@ -168,24 +161,18 @@ export class HostRegisterComponent implements OnInit {
     const task = this.storage.upload(path, file).then(() => {
       const ref = this.storage.ref(path);
       const downloadUrl = ref.getDownloadURL().subscribe(url =>{
-        console.log("*****");
-        this.Imagelist.push(url)
-       // console.log("image URL: ", this.image)
-        console.log("Array Size", this.Imagelist)
+        this.Imagelist.push(url);
       })
       });     
     }
-    //console.log("Function onUploadFinished called", fileName)
-    //console.log("Files path", path)
-    //this.Imagelist.push(fileName)
-    //console.log("Array Size", this.Imagelist.length)
   }
 
   onRemoved(event){
-    console.log("Function onRemoved called")
+    //console.log("Function onRemoved called")
   }
 
   onUploadStateChanged(event){
-    console.log("Function onUploadStateChanged called")
+    //console.log("Function onUploadStateChanged called")
   }
+  
 }

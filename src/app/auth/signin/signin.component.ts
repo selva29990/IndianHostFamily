@@ -50,8 +50,7 @@ export class SigninComponent implements OnInit {
   }
 
   signIn(){
-    console.log("***", this.email.value)
-    return this.auth.emailSignIn(this.email.value, this.password.value)
+     return this.auth.emailSignIn(this.email.value, this.password.value)
     .then(user => {
       if (this.signInForm.valid){
         this.router.navigate(['/'])

@@ -18,7 +18,6 @@ export class AccomodationListingComponent implements OnInit {
     firebase.auth().onAuthStateChanged( user => {
       if (user) {
         this.userEmail = user.email
-        console.log("user email", this.userEmail)
       } else {
         // No user is signed in.
       }
@@ -27,11 +26,9 @@ export class AccomodationListingComponent implements OnInit {
 
   ngOnInit() {
     this.posts= this.hostService.getPosts();
-    console.log(this.posts);
   }
 
   delete(id: string){
-    console.log("****id****" ,id);
     this.hostService.delete(id);
   }
 

@@ -13,6 +13,7 @@
                         <div>
                             <h4>€{{host.rentAmount}} per month | {{host.roomType}} </h4>
                         </div>
+                        <img *ngIf="host.status" class="bimage" src="../../assets/images/lettingAgreed.png" alt="Card image">
                         <img src="{{host.image}}" alt="">
                     </div> <br>
 
@@ -23,9 +24,9 @@
                             <label class="textStyle">
                                 &nbsp;  <b>Name:</b> &nbsp; {{host.Name}}</label> <br>
                             <label class="textStyle">
-                                &nbsp; <b>Email:</b> &nbsp; {{host.email}}</label> <br>
+                                &nbsp; <a href="mailto:hello@indianhostfamily.com?Subject=QueryFromIndianHostFamily"><b>Email:</b> &nbsp; {{host.email}}</a></label> <br>
                             <label class="textStyle">
-                                &nbsp; <b>Phone:</b>&nbsp; {{host.PhoneNo}}</label>
+                                &nbsp; <a href="tel:{{host.PhoneNo}}"> <b>Phone:</b>&nbsp; {{host.PhoneNo}}</a></label>
                             <br>
                         </div>
 
@@ -122,7 +123,7 @@
                         <b>Food Included:</b>&nbsp; {{host.foodInc}}</label>
                     <br>
                     <label class="textStyle">
-                        <b>Bill Including:</b>&nbsp;
+                        <b>Bills Including:</b>&nbsp;
                     </label>
                     <br>
                     <ul style="margin-left: 110px;" *ngFor="let hero of host.billInc">
@@ -142,6 +143,18 @@
             </mat-tab-group>
             <br>
         </div>
+        <footer id="footer">
+            <div class="inner">
+              <h2>Get In Touch</h2>
+              <div>
+               <a href="mailto:hello@indianhostfamily.com?Subject=QueryFromWebsite"><span class="fa fa-envelope"></span> &nbsp; <label>hello@indianhostfamily.com</label></a> 
+                <br>
+            </div>
+            </div>
+            <div class="copyright"> &nbsp;
+                &copy;Created by VRinTraining, Ireland.
+            </div> 
+        </footer>
     </div>
 </div>
 <br>
@@ -154,6 +167,6 @@
       </ul>
     </div>
     <div class="copyright"> &nbsp;
-      &copy;Made in Ireland with love by Selva.
+      &copy;Created by VRinTraining, Ireland.
     </div> 
 </footer> -->

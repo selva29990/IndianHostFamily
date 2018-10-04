@@ -4,7 +4,7 @@
     <li data-target="#demo" data-slide-to="1"></li>
     <li data-target="#demo" data-slide-to="2"></li>
   </ul>
-  <div class="carousel-inner">
+  <div class="carousel-inner" style="height: 300px;">
     <div class="carousel-item active">
       <div class="parallax1">
         <div class="caption">
@@ -19,10 +19,27 @@
       </div>
     </div>
     <div class="carousel-item">
-      <div class="parallax2"></div>
+      <div class="parallax2">
+        <div class="caption">
+          <span class="borderBig">
+            Looking for accomodation?
+          </span> <br> <br> <br>
+          <span>
+            <button class="button special" mat-raised-button routerLink='/accomodation-listing'>View all Properties</button>
+          </span>
+        </div>
+      </div>
     </div>
     <div class="carousel-item">
       <div class="parallax3">
+        <div class="caption">
+          <span class="borderBig">
+            Want to add your accomodation?
+          </span> <br> <br> <br>
+          <span class="border">
+            Sign up now to add your property.
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -34,11 +51,14 @@
   </a>
 </div>
 
+<div class="ad1">
+</div>
+
 <section id="three" class="wrapper">
   <h2 class="wrapperStyle">HOT PROPERTIES</h2>
   <u class="underline"></u>
 </section>
-<div class="bigContainer">
+<!--<div class="bigContainer">
   <div class="row">
     <div *ngFor="let post of posts | async">
       <mat-card class="example-card">
@@ -59,15 +79,76 @@
         </mat-card-actions>
       </mat-card>
     </div>
+  </div> 
+</div> -->
+<div class="container-fluid row">
+  <div class="col-md-2">
+      <img class="card-img-top" src="../../../assets/images/babysitting.jpg" alt="Card image">
+      <!--<div class="card" style="width:500px">
+          <div class="card-img-overlay">
+              <h6 class="card-title">Looking for Babysitter?</h6>
+              <p class="card-text">Some example text.</p>
+            </div>
+        </div> -->
   </div>
+  <div class="col-md-8">
+    <mat-card>
+      <div class="card-group">
+        <div class="card" *ngFor="let post of posts | async">
+          <img *ngIf="post.status" class="bimage" src="../../assets/images/lettingAgreed.png" alt="Card image">
+          <img class="card-img-top" class="img-rounded img-responsive" src={{post.image}} alt="IHF">
+          <div class="card-body">
+            <p class="text-muted">posted {{post.published.toDate() | fromNow }}</p>
+            <p class="card-text">
+              <a routerLink="../accomodation-listing/{{post.id}}">
+                <h6>{{post.address}}</h6>
+              </a>
+            </p>
+            <h6 class="card-title">€{{post.rentAmount}} per month | {{post.roomType}}</h6>
+            <!--<button mat-button routerLink="../accomodation-listing/{{post.id}}">Read more</button> -->
+          </div>
+
+        </div>
+      </div>
+    </mat-card>
+  </div>
+  <div class="col-md-2"> 
+    Asian Stores
+
+    <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                Asian Store
+            </mat-panel-title>
+            <mat-panel-description>
+              Dublin 1
+            </mat-panel-description>
+                   <!-- <mat-icon>shopping_basket</mat-icon> &nbsp;&nbsp; -->
+          </mat-expansion-panel-header>
+            <mat-panel-description>
+              54-55 Mary St, North City, Dublin 1
+            </mat-panel-description>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      
+   </div>
+
 </div>
+<section id="three" class="wrapper">
+  <button class="button special" mat-raised-button routerLink='/accomodation-listing'>View all Properties</button>
+</section>
+<br>
+<div class="ad2">
+  </div>
 <!--<ng-adsense
   [adClient]="'ca-pub-7395412725458407'"
   [adSlot]="2100013295"
   [display]="'inline-block'"
   [width]="320"
   [height]="108">
-</ng-adsense> -->
+</ng-adsense> 
 <section id="three" class="wrapper">
   <button class="button special" mat-raised-button routerLink='/accomodation-listing'>View all Properties</button>
 </section>
@@ -116,9 +197,54 @@
 </section>
 
 
+<!--
+<section id="three" class="wrapper">
+  <h1>How it works</h1>
+  <div class="inner flex flex-3">
+    <div class="flex-item box">
+      <div class="image fit">
+        <span style="font-size: 450%; color: #f6755e;">&#49;</span>
+      </div>
+      <div class="content">
+        <h3>Register</h3>
+        <p>Your registration provides unlimted use of Indian Host family website.</p>
+      </div>
+    </div>
+    <div class="flex-item box">
+      <div class="image fit">
+        <span style="font-size: 450%; color: #f6755e;">&#50;</span>
+      </div>
+      <div class="content">
+        <h3>Search</h3>
+        <p>Guest can look through the Indian host family profiles and visit the 'offers' page.</p>
+      </div>
+    </div>
+    <div class="flex-item box">
+      <div class="image fit">
+        <span style="font-size: 450%; color: #f6755e;">&#51;</span>
+      </div>
+      <div class="content">
+        <h3>Connect</h3>
+        <p>Connect to members, match your interests and read comments from the previous visitors.</p>
+      </div>
+    </div>
+    <div class="flex-item box">
+      <div class="image fit">
+        <span style="font-size: 450%; color: #f6755e;">&#52;</span>
+      </div>
+      <div class="content">
+        <h3>Book</h3>
+        <p>Finalise the details of your stay via our secure an online reservation tool. You will receive a contract containing
+          all the important details of the homestay..</p>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
 <!-- Two -->
 <section id="one" class="wrapper style1">
-  <h2>Announcements</h2>
+  <h2>Advertisements</h2>
   <u class="underline"></u> <br>
   <!--<div class="inner flex flex-3">
         <div class="flex-item">
@@ -143,28 +269,27 @@
         <div class="carousel-item active">
           <div class="row">
             <div class="col-md">
-              <img class="d-block w-100" src="../../../assets/images/advs_1200x600.jpg" alt="1 slide">
+              <img class="d-block w-100" src="../../../assets/images/spice_asia2.jpg" alt="1 slide">
             </div>
             <div class="col-md">
-              <img class="d-block w-100" src="../../../assets/images/advs_1200x600.jpg" alt="2 slide">
+              <img class="d-block w-100" src="../../../assets/images/diwali.jpg" alt="2 slide">
             </div>
           </div>
         </div>
         <div class="carousel-item">
           <div class="row">
             <div class="col-sm">
-              <img class="d-block w-100" src="../../../assets/images/advs_1200x600.jpg" alt="4 slide">
+              <img class="d-block w-100" src="../../../assets/images/ads.jpg" alt="4 slide">
             </div>
             <div class="col-sm">
-              <img class="d-block w-100" src="../../../assets/images/advs_1200x600.jpg" alt="5 slide">
+              <img class="d-block w-100" src="../../../assets/images/ads.jpg" alt="5 slide">
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
+  <br>
 </section>
-
 <!--Footer-->
 <app-footer></app-footer>

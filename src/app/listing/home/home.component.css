@@ -88,7 +88,7 @@
     /* Wrapper */
 	
 	.wrapper {
-		padding: 6em 0 4em 0;
+		padding: 3em 0 4em 0;
 		text-align: center;
 	}
 	
@@ -419,8 +419,7 @@
       }
       
       .example-header-image {
-        background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-        background-size: cover;
+         background-size: cover;
       }
 
       .blocks{
@@ -520,7 +519,7 @@
 .caption {
     position: absolute;
     left: 0;
-    top: 50%;
+    top: 25%;
     width: 100%;
     text-align: center;
     color: #000;
@@ -574,5 +573,56 @@
         font-size: 20px;
         font-weight: bold;
     }
+ 
+}
 
+.numbers{
+    width: 100px;
+	height: 100px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+  float:left;
+  margin:5px;
+}
+  
+  .count{
+  line-height: 100px;
+  color:#f6755e;
+  font-size: 450%;  
+}
+
+.img-rounded{
+    height: 225px;
+}
+
+.ad1{
+    width: 100%;
+    height: 100px;
+    background-image: url("../../../assets/images/SpiceAsia2.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.ad2{
+    width: 100%;
+    height: 100px;
+    background-image: url("../../../assets/images/handyman.jpeg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.card-body{
+    padding: 0.5rem;
+}
+
+.card-img-overlay{
+    color: white;
+    font-family: 'Fredoka One', cursive;
+}
+
+.card-title{
+    margin-top: 20px;
 }

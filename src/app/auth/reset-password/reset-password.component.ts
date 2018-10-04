@@ -18,8 +18,7 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   resetPassword(){
-    console.log("clciked***");
-    this.auth.resetPassword(this.email)
+     this.auth.resetPassword(this.email)
     .then(() => this.router.navigate(['/signin']))
   }
 

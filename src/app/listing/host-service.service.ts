@@ -19,7 +19,7 @@ export class HostServiceService {
         ref.orderBy('published', 'desc')
       )
       this.host3Collection = this.afs.collection(`accomodation-listing`, ref =>
-      ref.limit(4)
+      ref.orderBy('published', 'desc').limit(4)
     )
   }
 
@@ -68,4 +68,11 @@ export class HostServiceService {
    //   })
    // }))}
 
+   update(id: string, formData){
+    return this.getPost(id).update(formData)
+    .then(() =>
+    this.router.navigate(['/'])
+    )
+   }
+   
 }

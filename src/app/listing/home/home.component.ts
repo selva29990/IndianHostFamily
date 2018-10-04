@@ -2,6 +2,7 @@ import { Component, OnInit, Host } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HostServiceService } from '../host-service.service';
 import { AuthService } from '../../auth.service';
+import { Http, Response} from '@angular/http';
 
 @Component({
   selector: 'app-home',
@@ -14,14 +15,17 @@ export class HomeComponent implements OnInit {
   
   posts: Observable<Host[]>
   showSpinner: boolean = true;
- 
-  constructor(private hostService: HostServiceService, public auth: AuthService) { }
+  storeName: any;
+
+  constructor(private hostService: HostServiceService, public auth: AuthService, private http: Http) { }
 
   ngOnInit() {
     this.posts= this.hostService.get3Posts();
     this.posts.subscribe(()=> this.showSpinner = false)
-    console.log(this);
   }
 
+  getAsainStoreData(){
+    return this.http.get('../../../assets/Data/data.json')
+  }
 }
  
